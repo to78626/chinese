@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>語文勇者學院 V19.2.1</title>
+<style>
+:root{--ink:#263452;--gold:#ffd857;--pink:#ff6f91;--blue:#6bb6ff;--paper:rgba(255,255,255,.94)}
+*{box-sizing:border-box;user-select:none;-webkit-tap-highlight-color:transparent}html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;color:var(--ink);background:#9ee7ff}button,input,select{font-family:inherit}button{cursor:pointer;touch-action:manipulation;border:0}.app{position:relative;width:100vw;height:100vh;overflow:hidden;background:url('assets/forest.jpg') center/cover no-repeat}.app::before{content:"";position:absolute;inset:0;background:rgba(255,255,255,.18);pointer-events:none}.topbar{position:absolute;right:14px;top:12px;z-index:50;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.topbtn,.btn,.big,.modeBtn,.roleBtn,.key,.action{border:4px solid var(--ink);border-radius:20px;background:linear-gradient(#fff8aa,#ffd857);box-shadow:0 6px 0 #6b7dad,0 11px 18px rgba(38,52,82,.22);font-weight:1000;color:var(--ink)}.topbtn{font-size:16px;padding:8px 12px}.vol{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.92);border:3px solid var(--ink);border-radius:16px;padding:5px 8px;font-weight:900;box-shadow:0 5px 0 #6b7dad}.vol input{width:82px;accent-color:var(--pink)}button:active{transform:translateY(3px);box-shadow:0 2px 0 #6b7dad!important}.screen{position:absolute;inset:0;display:none;z-index:2}.screen.active{display:flex;align-items:center;justify-content:center}.card{width:min(1120px,88vw);max-height:calc(100vh - 86px);overflow:auto;background:var(--paper);border:6px solid var(--ink);border-radius:32px;box-shadow:0 14px 0 #6b7dad,0 28px 46px rgba(38,52,82,.25);padding:clamp(22px,3vw,44px);text-align:center}.title{font-size:clamp(46px,5vw,82px);font-weight:1000;line-height:1.04;margin:0;text-shadow:0 5px 0 #fff,0 9px 0 var(--gold);letter-spacing:.06em}.version{font-size:28px;font-weight:1000;margin:8px 0 10px}.subtitle{display:inline-flex;border:4px solid var(--ink);border-radius:999px;background:#fff;padding:8px 22px;font-size:clamp(16px,1.3vw,22px);font-weight:1000;box-shadow:0 5px 0 #d7e3ff}.bankModes{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:22px auto}.btn{font-size:clamp(18px,1.3vw,25px);padding:10px 18px;background:linear-gradient(#fff,#edf8ff)}.btn.on{background:linear-gradient(#caffbd,#88ed86)}.modes{display:grid;grid-template-columns:repeat(2,minmax(220px,1fr));gap:clamp(18px,2vw,32px);margin:24px auto;max-width:780px}.modeBtn{min-height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:linear-gradient(#fff,#edf8ff)}.modeBtn .icon{font-size:56px}.modeBtn b{font-size:clamp(30px,2.8vw,48px);text-shadow:0 3px 0 #fff,0 5px 0 var(--gold)}.modeBtn.imageModeBtn{min-height:auto;padding:0;background:transparent;border:0;box-shadow:none;border-radius:0;overflow:visible}.modeBtn.imageModeBtn:active{transform:translateY(4px)}.mainModeImage{display:block;width:min(540px,42vw);max-width:100%;height:auto;object-fit:contain;filter:drop-shadow(0 8px 0 #6b7dad) drop-shadow(0 14px 18px rgba(38,52,82,.28));transition:transform .15s ease,filter .15s ease}.modeBtn.imageModeBtn:hover .mainModeImage{transform:translateY(-2px) scale(1.015);filter:drop-shadow(0 10px 0 #6b7dad) drop-shadow(0 18px 22px rgba(38,52,82,.32))}.ruleRow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.rule{border:4px solid var(--ink);border-radius:18px;background:#fff;padding:10px;font-weight:1000;box-shadow:0 5px 0 #d7e3ff}.roleGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:22px}.roleBtn{min-height:200px;background:linear-gradient(#fff,#edf8ff);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:12px}.roleBtn .avatar{font-size:74px}.roleBtn b{font-size:clamp(18px,1.4vw,25px)}.roleBtn small{font-size:14px;color:#53648a;font-weight:900;line-height:1.25}.teacherGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:left}.box{background:#fff;border:4px solid var(--ink);border-radius:22px;box-shadow:0 7px 0 #d7e3ff;padding:15px;font-weight:900}.box h3{margin:0 0 10px;color:#ff597a;font-size:24px}.box label{display:block;margin-top:8px}.box select,.box input{width:100%;font-size:20px;font-weight:900;border:3px solid var(--ink);border-radius:13px;padding:8px;background:#fffdf3}.wide{grid-column:1/-1}.filterGrid{display:grid;grid-template-columns:repeat(11,1fr);gap:7px}.filterBtn{border:3px solid var(--ink);border-radius:12px;background:#fff;font-size:24px;font-weight:1000;min-height:42px}.filterBtn.on{background:linear-gradient(#caffbd,#88ed86)}
+/* Battle: previous 3-column feel */
+.battleScreen{align-items:center!important;justify-content:center!important;padding-top:58px}.shell{width:80vw;height:80vh;min-width:min(980px,96vw);max-width:1220px;background:var(--paper);border:6px solid var(--ink);border-radius:30px;box-shadow:0 12px 0 #6b7dad,0 24px 40px rgba(38,52,82,.25);padding:12px;display:grid;grid-template-rows:52px minmax(250px,1fr) minmax(112px,auto) auto;gap:10px;overflow:hidden}.pkShell{width:96vw;height:90vh;max-width:1560px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:1fr;gap:14px;background:transparent;border:0;box-shadow:none;padding:0}.pkPanel{background:var(--paper);border:6px solid var(--ink);border-radius:28px;box-shadow:0 10px 0 #6b7dad;padding:10px;display:grid;grid-template-rows:44px minmax(190px,1fr) minmax(100px,auto) auto;gap:8px;overflow:hidden}.head{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;border:3px solid var(--ink);border-radius:16px;background:#fff;padding:5px 10px;font-weight:1000}.headName{font-size:clamp(18px,1.4vw,25px);white-space:nowrap}.stats{display:flex;gap:8px}.stat{border:2px solid var(--ink);border-radius:12px;background:#fffdf3;padding:3px 8px;white-space:nowrap}.stage{position:relative;border:5px solid var(--ink);border-radius:24px;overflow:hidden;background-image:var(--bg);background-size:cover;background-position:center;display:grid;grid-template-rows:44px 1fr}.hpLine{background:rgba(255,255,255,.86);border-bottom:3px solid var(--ink);display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:5px 10px}.barWrap{font-size:13px;font-weight:1000}.barWrap.left{text-align:left}.barWrap.right{text-align:right}.bar{height:16px;border:2px solid var(--ink);border-radius:999px;background:#fff;overflow:hidden}.fill{height:100%;width:100%;background:linear-gradient(90deg,#37d576,#b8ff7e);transition:width .18s linear}.fill.enemy{background:linear-gradient(90deg,#ff597a,#ffb0c3)}.field{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;justify-items:center;padding:12px 28px 18px}.fighter{font-size:clamp(74px,8vw,140px);filter:drop-shadow(0 10px 10px rgba(38,52,82,.25))}.vs{font-size:clamp(24px,2vw,38px);font-weight:1000;background:#fff;border:4px solid var(--ink);border-radius:999px;padding:5px 16px;color:#ff597a;box-shadow:0 6px 0 #6b7dad}.qbox{background:#fff;border:5px solid var(--ink);border-radius:22px;box-shadow:inset 0 0 0 5px #fff1a8,0 7px 0 #d7e3ff;padding:12px 16px;font-family:"DFKai-SB","BiauKai","標楷體",serif;font-size:clamp(22px,1.8vw,32px);line-height:1.45;font-weight:900;text-align:left;overflow:auto;min-height:96px}.punctLine{white-space:nowrap;display:inline-block;max-width:100%}.punctLine.allowWrap{white-space:normal}.blank{display:inline-flex;align-items:center;justify-content:center;min-width:52px;min-height:1.22em;background:#fff5b8;border:3px solid var(--ink);color:#ff4f6d;border-radius:12px;margin:0 3px;padding:0 9px;vertical-align:baseline}.blank.pending{outline:4px solid #ff7aa2;outline-offset:2px}.blank.filled{background:#fff0bd}.blank.correct{background:linear-gradient(#caffbd,#88ed86);box-shadow:0 0 0 4px rgba(83,214,88,.22);color:#115b22}.blank.wrong{background:#fff0bd}.mcQuestion{display:flex;flex-direction:column;gap:6px}.mcPrompt{font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;font-size:clamp(16px,1.1vw,21px);color:#53648a;font-weight:1000}.keys{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;overflow:auto;max-height:26vh;padding:2px}.key{min-height:46px;font-size:clamp(20px,1.5vw,30px);padding:5px 14px;background:linear-gradient(#fff,#f3fbff);border-radius:16px}.key.mc{width:auto;min-width:auto;max-width:min(680px,94%);padding:8px 20px;white-space:normal;font-size:clamp(23px,1.8vw,34px)}.key.mc.long{flex-basis:min(680px,96%)}.key.selected{background:linear-gradient(#caffbd,#88ed86)}.actions{display:grid;grid-template-columns:1fr 1.2fr 1fr 1fr 1fr;gap:8px}.action{min-height:50px;font-size:clamp(16px,1.3vw,24px)}.confirm{background:linear-gradient(#caffbd,#88ed86)}.cancel{background:linear-gradient(#ffe5e5,#ffc7d2)}.skill{background:linear-gradient(#fff2b8,#ffca61)}.hint{background:linear-gradient(#e8f9ff,#bdefff)}.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:200;background:#fff;border:4px solid var(--ink);border-radius:18px;box-shadow:0 8px 0 #6b7dad;padding:10px 18px;font-weight:1000;font-size:20px;display:none;max-width:min(880px,92vw)}.toast.show{display:block}.float{position:fixed;left:50%;top:24%;transform:translate(-50%,-50%);z-index:180;background:linear-gradient(135deg,#ff6d8d,#ffc94d);color:#fff;border:5px solid var(--ink);border-radius:28px;box-shadow:0 12px 0 #6b7dad;padding:12px 30px;font-size:clamp(34px,4vw,72px);font-weight:1000;display:none;pointer-events:none}.float.show{display:block;animation:pop 1s ease both}@keyframes pop{0%{opacity:0;transform:translate(-50%,-30%) scale(.55)}20%,80%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-70%) scale(.9)}}.resultGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:16px}.resultCard{text-align:left;background:#fff;border:4px solid var(--ink);border-radius:22px;box-shadow:0 7px 0 #d7e3ff;padding:14px;font-weight:900}.resultCard h3{text-align:center;color:#ff597a;font-size:28px;margin:0 0 8px}.resultCard p{display:flex;justify-content:space-between;margin:8px 0}
+
+.headIcon{width:34px;height:34px;object-fit:contain;vertical-align:middle;margin-right:6px;filter:drop-shadow(0 2px 2px rgba(38,52,82,.25))}.roleAvatar{width:min(140px,90%);height:120px;object-fit:contain;display:block;filter:drop-shadow(0 8px 8px rgba(38,52,82,.22))}.spriteImg{max-width:100%;max-height:100%;width:min(31vw,245px);height:min(31vh,245px);object-fit:contain;display:block;filter:drop-shadow(0 12px 10px rgba(38,52,82,.32))}.pkPanel .spriteImg{width:min(18vw,180px);height:min(22vh,180px)}.field .fighter{width:100%;height:100%;min-height:120px;display:flex;align-items:center;justify-content:center;font-size:0}.fxImg{width:min(40vw,420px);height:min(34vh,340px);object-fit:contain;display:block;filter:drop-shadow(0 8px 10px rgba(38,52,82,.25))}.float.fx{background:transparent;border:0;box-shadow:none;padding:0}.float.fx::after{content:attr(data-label);position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);font-size:clamp(26px,2.8vw,46px);font-weight:1000;color:#fff;text-shadow:0 3px 0 var(--ink),0 0 10px rgba(255,216,87,.9);white-space:nowrap}.roleBtn .avatar{font-size:0;width:100%;display:flex;justify-content:center;align-items:center}.headName{display:flex;align-items:center;gap:4px}.fxLayer{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:8;pointer-events:none;opacity:0}.stage.skillFlash .fxLayer{animation:fxPop .8s ease both}@keyframes fxPop{0%{opacity:0;transform:translate(-50%,-50%) scale(.45)}20%,65%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-56%) scale(1.12)}}
+
+@media(max-height:720px){.shell{height:86vh;grid-template-rows:42px minmax(180px,1fr) minmax(88px,auto) auto}.fighter{font-size:clamp(58px,7vw,105px)}.qbox{font-size:clamp(18px,1.4vw,26px);min-height:78px}.key{min-height:40px}.action{min-height:42px}.stage{grid-template-rows:38px 1fr}}
+
+/* V19.1.9 fixes */
+.pkShell{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;align-items:stretch!important;justify-content:center!important;}
+.pkPanel{min-width:0;}
+@media(max-width:900px){.pkShell{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;width:98vw;height:92vh;gap:8px}.pkPanel{padding:7px}.pkPanel .fighter{font-size:clamp(48px,10vw,90px)}.pkPanel .qbox{font-size:clamp(18px,2.1vw,26px)}.pkPanel .key{font-size:clamp(18px,2.1vw,26px);min-height:40px}.pkPanel .actions{gap:5px}.pkPanel .action{min-height:42px;font-size:clamp(14px,1.8vw,20px)}}
+
+.resultIcon{display:block;width:min(760px,88%);max-height:190px;object-fit:contain;margin:2px auto 8px;filter:drop-shadow(0 8px 0 rgba(107,125,173,.35));}
+.resultTitleText{font-size:clamp(30px,4vw,58px);margin:0 0 4px;text-align:center;}
+</style>
+</head>
+<body>
+<div id="app" class="app">
+  <div class="topbar">
+    <button id="musicBtn" class="topbtn">🎵 音樂關</button>
+    <div class="vol">音量 <input id="volume" type="range" min="0" max="100" value="70"></div>
+    <button id="fullscreenBtn" class="topbtn">⛶ 全螢幕</button>
+    <button class="topbtn" onclick="goMenu()">主選單</button>
+  </div>
+  <section id="menu" class="screen active"></section>
+  <section id="role" class="screen"></section>
+  <section id="teacher" class="screen"></section>
+  <section id="adventure" class="screen battleScreen"></section>
+  <section id="pkSetup" class="screen"></section>
+  <section id="pk" class="screen battleScreen"></section>
+  <section id="result" class="screen"></section>
+  <div id="toast" class="toast"></div>
+  <div id="float" class="float"></div>
+</div>
+<script src="game_data.js"></script>
+<script src="v19_0_2_rhetoric_idiom_addon.js"></script>
+<script>
+'use strict';
+const HEROES=[null,
+{name:'標點騎士',img:'assets/sprites/heroes/punct_knight.png',fx:'assets/sprites/effects/slash_blue.png',skill:'逗號聖劍',passive:'連擊5次回血'},
+{name:'引號法師',img:'assets/sprites/heroes/quote_mage.png',fx:'assets/sprites/effects/quote_burst.png',skill:'引號風暴',passive:'答對能量更多'},
+{name:'書名號獵人',img:'assets/sprites/heroes/book_hunter.png',fx:'assets/sprites/effects/arrow_green.png',skill:'書名連箭',passive:'偶爾爆擊'},
+{name:'分號忍者',img:'assets/sprites/heroes/semicolon_ninja.png',fx:'assets/sprites/effects/slash_purple.png',skill:'影分號斬',passive:'答錯減傷'},
+{name:'句號守護者',img:'assets/sprites/heroes/period_guardian.png',fx:'assets/sprites/effects/shield_blue.png',skill:'句號審判',passive:'低血量回血'}];
+const MONS=[
+{name:'逗號史萊姆',img:'assets/sprites/monsters/comma_slime.png'},
+{name:'引號幽靈',img:'assets/sprites/monsters/quote_ghost.png'},
+{name:'書名號魔像',img:'assets/sprites/monsters/book_golem.png'},
+{name:'修辭魔龍',img:'assets/sprites/monsters/rhetoric_dragon.png'},
+{name:'標點神王',img:'assets/sprites/monsters/punct_god.png'}];
+const BGS={forest:'assets/forest.jpg',garden:'assets/garden.jpg',cloud:'assets/cloud.jpg',volcano:'assets/volcano.jpg',temple:'assets/temple.jpg'};
+function imgTag(src,cls,alt=''){return `<img class="${cls}" src="${escAttr(src)}" alt="${escAttr(alt)}" draggable="false">`}
+function heroImg(id,cls='spriteImg'){const h=HEROES[Number(id)]||HEROES[1];return imgTag(h.img,cls,h.name)}
+function entityImg(e,cls='spriteImg'){if(typeof e==='string')return e;if(e&&e.img)return imgTag(e.img,cls,e.name||'');return ''}
+function headHero(id){return heroImg(id,'headIcon')}
+function roleHero(id){return heroImg(id,'roleAvatar')}
+function fxImg(src,cls='fxImg'){return imgTag(src,cls,'特效')}
+
+const TRACKS={menu:'audio/opening_theme.mp3',role:'audio/the_field_of_dreams.mp3',pkSetup:'audio/the_field_of_dreams.mp3',teacher:'audio/watermelon_beats-medieval-folk-music-505203.mp3',adventure:'audio/Battle.mp3',pk:'audio/Battle.mp3',result:'audio/Rejoicing.mp3'};
+let state={screen:'menu',mode:null,gameBank:'punctuation',bank:'low',difficulty:'mixed',limit:12,filters:[],solo:null,players:[],monster:null,stageIndex:0,lock:false};
+const $=id=>document.getElementById(id);const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+function show(id){state.screen=id;document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('active',s.id===id));setAppBg();Music.scene();setTimeout(fitPunctuationLines,0)}
+function setAppBg(){let bg='forest'; if(state.screen==='teacher') bg='garden'; if(state.screen==='role'||state.screen==='pkSetup') bg='cloud'; if(state.screen==='result') bg='temple'; document.getElementById('app').style.backgroundImage=`url('${BGS[bg]}')`;}
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.remove('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.add('show'),10);clearTimeout(t._hide);t._hide=setTimeout(()=>t.classList.remove('show'),2600)}
+function float(msg,fx){const f=$('float');f.classList.remove('show','fx');f.removeAttribute('data-label');if(fx){f.classList.add('fx');f.dataset.label=msg;f.innerHTML=fxImg(fx)}else{f.textContent=msg}clearTimeout(f._t);f._t=setTimeout(()=>f.classList.add('show'),10);clearTimeout(f._hide);f._hide=setTimeout(()=>{f.classList.remove('show','fx');f.innerHTML='';f.textContent='';},1100)}
+function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function isMC(q){return !!(q&&q.options&&q.options.length)}
+function normalizeMC(q){return {type:q.bank,text:q.question,ans:[q.answer],options:shuffle(q.options||[]),tip:q.explanation||'',difficulty:q.difficulty,id:q.id};}
+function punctuationPool(){let arr=[...BANKS.LOW_Q]; if(state.bank==='mid'||state.bank==='high')arr=arr.concat(BANKS.MID_Q); if(state.bank==='high')arr=arr.concat(BANKS.HIGH_Q); if(state.filters.length)arr=arr.filter(q=>q.ans.every(a=>state.filters.includes(a))); return arr.map((q,i)=>({...q,type:'punctuation',id:'p'+i}));}
+function bankPool(){if(state.gameBank==='punctuation')return punctuationPool();const add=window.V1902_BANK_ADDON;let arr=[];if(state.gameBank==='rhetoric')arr=add.RHETORIC_QUESTIONS;else if(state.gameBank==='idiom')arr=add.IDIOM_QUESTIONS;else arr=[...add.RHETORIC_QUESTIONS,...add.IDIOM_QUESTIONS];if(state.difficulty!=='mixed')arr=arr.filter(q=>q.difficulty===state.difficulty);return arr.map(normalizeMC)}
+function roundPool(stage=null){let pool=bankPool(); if(state.gameBank==='punctuation'&&stage&&stage.filter){const st=pool.filter(q=>q.ans.some(a=>stage.filter.includes(a))); if(st.length)pool=st} return shuffle(pool).slice(0,Math.max(1,Math.min(state.limit,pool.length)));}
+function makePlayer(id,name,hero){return {id,name,hero,hp:100,maxHp:100,energy:0,score:0,combo:0,best:0,correct:0,wrong:0,qIndex:0,questions:[],selected:[],wrongCombo:0,skillUses:0,damage:0}}
+function qOf(p){return p.questions[p.qIndex%p.questions.length]}
+function currentTargetFor(p){if(state.mode==='pk')return state.players.find(x=>x.id!==p.id);return state.monster}
+function renderMenu(){$('menu').innerHTML=`<div class="card"><h1 class="title">語文勇者學院</h1><div class="version">V19.2.4 GitHub Slim</div><div class="subtitle">標點 × 修辭 × 成語｜已重建穩定操作版</div><div class="bankModes">${bankButton('punctuation','標點競技場')}${bankButton('rhetoric','修辭魔法塔')}${bankButton('idiom','成語博物館')}${bankButton('mixed','語文混戰場')}</div><div class="modes"><button class="modeBtn imageModeBtn" aria-label="單人冒險" onclick="renderRole();show('role')"><img class="mainModeImage" src="assets/ui/single_adventure.png" alt="單人冒險"></button><button class="modeBtn imageModeBtn" aria-label="雙人PK" onclick="renderPKSetup();show('pkSetup')"><img class="mainModeImage" src="assets/ui/pk_button.png" alt="雙人PK"></button></div><button class="big" onclick="renderTeacher();show('teacher')">老師控制台</button><div class="ruleRow"><div class="rule">標點：先選符號 → 顯示空格 → 按確定</div><div class="rule">修辭／成語：選答案 → 按確定</div><div class="rule">修辭／成語答錯不公布答案，可繼續作答</div></div></div>`;}
+function bankButton(bank,label){return `<button class="btn ${state.gameBank===bank?'on':''}" onclick="setBank('${bank}')">${label}</button>`}
+function setBank(bank){state.gameBank=bank;if(bank!=='punctuation')state.filters=[];renderMenu()}
+function renderTeacher(){const f=new Set(state.filters);const isP=state.gameBank==='punctuation';$('teacher').innerHTML=`<div class="card"><h1 class="title" style="font-size:50px">老師控制台</h1><div class="teacherGrid"><div class="box"><h3>題庫設定</h3><label>玩法題庫</label><select id="gameBankSel" onchange="updateTeacherBankUI()"><option value="punctuation">標點符號</option><option value="rhetoric">修辭</option><option value="idiom">成語</option><option value="mixed">修辭＋成語混合</option></select><label>標點年段</label><select id="bankSel"><option value="low">低年級</option><option value="mid">中年級</option><option value="high">高年級</option></select><label>修辭／成語難度</label><select id="diffSel" ${isP?'disabled':''}><option value="mixed">混合</option><option value="easy">初級</option><option value="normal">中級</option><option value="hard">高級</option></select><label>題數</label><input id="limitInput" type="number" min="3" max="40" value="${state.limit}"></div><div class="box"><h3>操作規則</h3><p>標點題：按標點後只填入空格，不會判斷；按「確定」後才提交。</p><p>修辭／成語：按答案後會高亮，按「確定」後才提交。</p></div><div class="box wide"><h3>指定標點練習</h3><div class="filterGrid">${PUNCTS.map(p=>`<button class="filterBtn ${f.has(p)?'on':''}" onclick="toggleFilter('${p}')" ${isP?'':'disabled'}>${esc(p)}</button>`).join('')}</div><button class="big" onclick="state.filters=[];renderTeacher()" ${isP?'':'disabled'}>清除篩選</button></div></div><button class="big confirm" onclick="applyTeacher()">套用設定</button></div>`;$('gameBankSel').value=state.gameBank;$('bankSel').value=state.bank;$('diffSel').value=state.difficulty;updateTeacherBankUI()}
+function toggleFilter(p){if(state.gameBank!=='punctuation')return;state.filters=state.filters.includes(p)?state.filters.filter(x=>x!==p):[...state.filters,p];renderTeacher()}
+function applyTeacher(){state.gameBank=$('gameBankSel').value;state.bank=$('bankSel').value;state.difficulty=$('diffSel').value;state.limit=Math.max(3,Math.min(40,parseInt($('limitInput').value||12)));if(state.gameBank!=='punctuation')state.filters=[];renderMenu();show('menu')}
+function renderRole(){$('role').innerHTML=`<div class="card"><h1 class="title" style="font-size:52px">選擇冒險角色</h1><div class="subtitle">點選角色後直接進入戰鬥</div><div class="roleGrid">${HEROES.slice(1).map((h,i)=>`<button class="roleBtn" onclick="startAdventure(${i+1})"><span class="avatar">${roleHero(i+1)}</span><b>${h.name}</b><small>${h.skill}<br>${h.passive}</small></button>`).join('')}</div></div>`}
+function startAdventure(hero){const p=makePlayer(1,'勇者',hero);state.stageIndex=0;const stage=STAGES[0];p.questions=roundPool(stage);state.solo=p;state.mode='adventure';state.monster={name:MONS[0].name,img:MONS[0].img,hp:110,maxHp:110,stage:'forest',count:1};renderAdventure();show('adventure')}
+function renderPKSetup(){$('pkSetup').innerHTML=`<div class="card"><h1 class="title" style="font-size:52px">雙人 PK 設定</h1><div class="teacherGrid"><div class="box"><h3>玩家1</h3><input id="p1name" value="玩家1"><select id="p1hero">${HEROES.slice(1).map((h,i)=>`<option value="${i+1}">${h.name}</option>`).join('')}</select></div><div class="box"><h3>玩家2</h3><input id="p2name" value="玩家2"><select id="p2hero">${HEROES.slice(1).map((h,i)=>`<option value="${i+1}">${h.name}</option>`).join('')}</select></div></div><button class="big confirm" onclick="startPK()">開始 PK</button></div>`}
+function startPK(){const p1=makePlayer(1,$('p1name').value||'玩家1',Number($('p1hero').value));const p2=makePlayer(2,$('p2name').value||'玩家2',Number($('p2hero').value));p1.questions=roundPool();p2.questions=roundPool();state.players=[p1,p2];state.mode='pk';renderPK();show('pk')}
+function stageBg(target){return `url('${BGS[target.stage||'forest']}')`}
+function hpLine(p,t,side='left'){return `<div class="barWrap left">${esc(p.name)} HP ${p.hp}/${p.maxHp}<div class="bar"><div class="fill" style="width:${Math.max(0,p.hp/p.maxHp*100)}%"></div></div></div><div class="barWrap right">${esc(t.name||'怪物')} HP ${t.hp}/${t.maxHp}<div class="bar"><div class="fill enemy" style="width:${Math.max(0,t.hp/t.maxHp*100)}%"></div></div></div>`}
+function renderAdventure(){const p=state.solo;const t=state.monster;$('adventure').innerHTML=`<div class="shell"><div class="head"><div class="headName">${headHero(p.hero)} ${HEROES[p.hero].name}</div><div class="stats"><span class="stat">分數 ${p.score}</span><span class="stat">Combo ${p.combo}</span><span class="stat">能量 ${p.energy}%</span></div></div>${stageBlock(p,t)}${questionBlock(p)}${controlsBlock(p)}</div>`;fitPunctuationLines()}
+function renderPK(){const [p1,p2]=state.players;$('pk').innerHTML=`<div class="pkShell">${pkPanel(p1,p2)}${pkPanel(p2,p1)}</div>`;fitPunctuationLines()}
+function pkPanel(p,op){const target={name:op.name,img:HEROES[op.hero].img,hp:op.hp,maxHp:op.maxHp,stage:'temple'};return `<div class="pkPanel"><div class="head"><div class="headName">${headHero(p.hero)} ${esc(p.name)}</div><div class="stats"><span class="stat">Combo ${p.combo}</span><span class="stat">能量 ${p.energy}%</span></div></div>${stageBlock(p,target)}${questionBlock(p)}${controlsBlock(p)}</div>`}
+function stageBlock(p,t){return `<div class="stage" style="--bg:${stageBg(t)}"><div class="hpLine">${hpLine(p,t)}</div><div class="field"><div class="fighter">${heroImg(p.hero)}</div><div class="vs">VS</div><div class="fighter">${entityImg(t)}</div></div></div>`}
+function questionBlock(p){const q=qOf(p);return `<div class="qbox">${renderQuestion(p,q)}</div>`}
+function renderQuestion(p,q){if(isMC(q)){const bank=q.type==='rhetoric'?'這句話使用了哪種修辭？':q.type==='idiom'?'可以用哪個成語？':'請選出正確答案';return `<div class="mcQuestion"><div>${esc(q.text)}</div><div class="mcPrompt">${bank}</div></div>`}let i=0;const html=esc(q.text).replace(/___/g,()=>{const idx=i;const val=(p.selected&&p.selected[idx])?String(p.selected[idx]):'';const cls=val?(val===q.ans[idx]?'filled correct':'filled wrong'):'pending';i++;return `<span class="blank ${cls}">${esc(val)}</span>`});return `<span class="punctLine">${html}</span>`}
+function controlsBlock(p){const q=qOf(p);const keys=isMC(q)?mcKeys(p,q):punctKeys(p,q);return `<div><div class="keys ${isMC(q)?'mcKeys':'punctKeys'}">${keys}</div><div class="actions"><button class="action cancel" onclick="cancelAnswer(${p.id})">取消</button><button class="action skill ${p.energy>=100?'ready':''}" onclick="skill(${p.id})">技能</button><button class="action confirm" onclick="submitAnswer(${p.id})">確定</button><button class="action hint" onclick="hint(${p.id})">提示</button><button class="action hint" onclick="analysis(${p.id})">解析</button></div></div>`}
+function punctKeys(){return PUNCTS.map(p=>`<button class="key" onclick="pickAnswer(currentPlayerId(this),'${escAttr(p)}')">${esc(p)}</button>`).join('')}
+function mcKeys(p,q){return q.options.map(o=>`<button class="key mc ${String(o).length>12?'long':''} ${p.selected[0]===o?'selected':''}" onclick="pickAnswer(${p.id},'${escAttr(o)}')">${esc(o)}</button>`).join('')}
+function escAttr(s){return String(s).replace(/&/g,'&amp;').replace(/'/g,'&#39;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function currentPlayerId(btn){const shell=btn.closest('.pkPanel');if(!shell)return 1;return Array.from(document.querySelectorAll('.pkPanel')).indexOf(shell)+1}
+function getP(id){id=Number(id);return state.mode==='pk'?state.players.find(p=>p.id===id):state.solo}
+function pickAnswer(id,answer){const p=getP(id),q=qOf(p);if(!p||!q)return;if(isMC(q)){p.selected=[answer];renderBattle();return}const need=q.ans.length;if(p.selected.filter(Boolean).length>=need){toast('已選好標點；請按「確定」提交，或按「取消」重新選擇。');return}let idx=p.selected.findIndex(x=>!x);if(idx<0)idx=p.selected.length;if(idx<need){p.selected[idx]=answer}renderBattle()}
+function cancelAnswer(id){const p=getP(id);if(!p)return;p.selected=[];toast('已清除答案，請重新選擇。');renderBattle()}
+function submitAnswer(id){const p=getP(id),q=qOf(p);if(!p||!q)return;const need=q.ans.length;if((p.selected||[]).filter(Boolean).length<need){toast(isMC(q)?'請先選擇答案':'還有空格沒有填完');return}const ok=q.ans.every((a,i)=>p.selected[i]===a);ok?correct(p):wrong(p)}
+function correct(p){p.correct++;p.combo++;p.best=Math.max(p.best,p.combo);p.energy=Math.min(100,p.energy+28);const d=28+p.combo*4;applyDamage(p,d);p.score+=20+d;float('答對！');Music.sfx('ok');if(checkEnd(p))return;nextQ(p);renderBattle()}
+function wrong(p){p.wrong++;p.combo=0;p.wrongCombo++;const d=Math.min(45,16+(p.wrongCombo-1)*8);p.hp=Math.max(0,p.hp-d);const q=qOf(p);toast('答錯了，請再試一次！');if(isMC(q)){p.selected=[];}else{p.selected=(q.ans||[]).map((a,i)=>p.selected&&p.selected[i]===a?p.selected[i]:'');}Music.sfx('bad');if(p.hp<=0)return end(false,'挑戰失敗');renderBattle()}
+function applyDamage(p,d){if(state.mode==='pk'){const op=state.players.find(x=>x.id!==p.id);op.hp=Math.max(0,op.hp-d)}else{state.monster.hp=Math.max(0,state.monster.hp-d)}}
+function nextQ(p){p.qIndex=(p.qIndex+1)%p.questions.length;p.selected=[]}
+function checkEnd(p){if(state.mode==='pk'){const op=state.players.find(x=>x.id!==p.id);if(op.hp<=0){end(true,`${p.name} 勝利！`);return true}return false}if(state.monster.hp<=0){state.stageIndex++;if(state.stageIndex>=5){end(true,'冒險成功！');return true}const st=STAGES[state.stageIndex%STAGES.length],m=MONS[state.stageIndex%MONS.length];state.monster={name:m.name,img:m.img,hp:110+state.stageIndex*45,maxHp:110+state.stageIndex*45,stage:st.world,count:state.stageIndex+1};p.questions=roundPool(st);p.qIndex=0;p.selected=[];toast('下一關開始！')}return false}
+function skill(id){const p=getP(id);if(!p||p.energy<100){toast('能量100%才能施放技能');return}p.energy=0;p.skillUses++;applyDamage(p,90);float(HEROES[p.hero].skill,HEROES[p.hero].fx);Music.sfx('skill');if(!checkEnd(p))renderBattle()}
+function hint(id){const p=getP(id),q=qOf(p);if(!q)return; if(isMC(q))toast(q.tip||'觀察關鍵詞再選答案。'); else{const i=Math.max(0,p.selected.findIndex((x,j)=>x!==q.ans[j]));toast(`提示：第${i+1}格可想想「${RULES[q.ans[i]]?.[0]||q.ans[i]}」`)}}
+function analysis(id){const p=getP(id),q=qOf(p);toast(q.tip||'依句意選擇正確答案。')}
+function renderBattle(){state.mode==='pk'?renderPK():renderAdventure()}
+function end(win,title){Music.sfx(win?'win':'loss');const arr=state.mode==='pk'?state.players:[state.solo];const icon=win?'assets/ui/result_victory.png':'assets/ui/result_defeat.png';$('result').innerHTML=`<div class="card"><img class="resultIcon" src="${icon}" alt="${win?'勝利':'失敗'}"><div class="subtitle">${esc(title)}</div><div class="resultGrid">${arr.map(p=>`<div class="resultCard"><h3>${esc(p.name)}</h3><p><span>分數</span><b>${p.score}</b></p><p><span>答對</span><b>${p.correct}</b></p><p><span>答錯</span><b>${p.wrong}</b></p><p><span>最高Combo</span><b>${p.best}</b></p></div>`).join('')}</div><button class="big" onclick="goMenu()">返回主選單</button></div>`;show('result')}
+function goMenu(){state.mode=null;renderMenu();show('menu')}
+function fitPunctuationLines(){document.querySelectorAll('.punctLine').forEach(line=>{line.classList.remove('allowWrap');const box=line.closest('.qbox');if(box&&line.scrollWidth>box.clientWidth-12)line.classList.add('allowWrap')})}
+window.addEventListener('resize',fitPunctuationLines);
+const Music={on:false,audio:null,current:'',ctx:null,vol(){return Math.max(0,Math.min(1,Number($('volume').value||70)/100))},scene(){if(!this.on)return;const src=TRACKS[state.screen]||TRACKS.menu;this.play(src)},async toggle(){this.on?this.stop():this.play(TRACKS[state.screen]||TRACKS.menu)},async play(src){this.on=true;$('musicBtn').textContent='🎵 音樂開';try{if(!this.audio){this.audio=new Audio();this.audio.loop=true;this.audio.preload='auto'}if(this.current!==src){this.audio.pause();this.audio.src=src;this.audio.currentTime=0;this.current=src}this.audio.volume=this.vol();await this.audio.play()}catch(e){console.warn(e);toast('音樂無法播放：請確認 audio 資料夾和 HTML 在同一層，並先點一次音樂鍵。')}},stop(){this.on=false;$('musicBtn').textContent='🎵 音樂關';try{if(this.audio)this.audio.pause()}catch(e){}},sfx(type){try{if(!this.ctx)this.ctx=new(window.AudioContext||window.webkitAudioContext)();const seq=type==='ok'?[660,880]:type==='bad'?[180,120]:type==='skill'?[392,784,1175]:type==='win'?[523,659,784,1046]:[220];seq.forEach((f,i)=>{const o=this.ctx.createOscillator(),g=this.ctx.createGain();o.frequency.value=f;o.type='triangle';g.gain.value=.04*this.vol();o.connect(g);g.connect(this.ctx.destination);const t=this.ctx.currentTime+i*.09;o.start(t);g.gain.exponentialRampToValueAtTime(.001,t+.18);o.stop(t+.2)})}catch(e){}}};
+$('musicBtn').addEventListener('click',()=>Music.toggle());$('volume').addEventListener('input',()=>{if(Music.audio)Music.audio.volume=Music.vol()});
+
+function toggleFullscreen(){
+  const root=document.documentElement;
+  if(!document.fullscreenElement){
+    (root.requestFullscreen||root.webkitRequestFullscreen||root.msRequestFullscreen||function(){}).call(root);
+  }else{
+    (document.exitFullscreen||document.webkitExitFullscreen||document.msExitFullscreen||function(){}).call(document);
+  }
+}
+function updateFullscreenLabel(){
+  const b=$('fullscreenBtn');
+  if(b)b.textContent=document.fullscreenElement?'⛶ 離開全螢幕':'⛶ 全螢幕';
+}
+function updateTeacherBankUI(){
+  const gb=$('gameBankSel'), bank=$('bankSel'), diff=$('diffSel');
+  if(!gb)return;
+  const isP=gb.value==='punctuation';
+  if(bank)bank.disabled=false;
+  if(diff)diff.disabled=isP;
+  document.querySelectorAll('.filterBtn').forEach(btn=>btn.disabled=!isP);
+}
+$('fullscreenBtn').addEventListener('click',toggleFullscreen);
+document.addEventListener('fullscreenchange',updateFullscreenLabel);
+
+renderMenu();show('menu');
+</script>
+
+<script>
+/* V19.2.4 sound-effects only patch: add uploaded SFX without changing game rules/layout. */
+(function(){
+  const SFX_FILES={
+    ok:['audio/sfx/attack_slash.ogg','audio/sfx/arrow_shot.ogg','audio/sfx/fireball.ogg'],
+    bad:['audio/sfx/player_hit.ogg'],
+    skill:['audio/sfx/spell1.ogg','audio/sfx/magic_hit.ogg','audio/sfx/fireball.ogg'],
+    win:['audio/sfx/victory.ogg'],
+    loss:['audio/sfx/player_hit.ogg'],
+    click:['audio/sfx/chain_03.ogg'],
+    monster:['audio/sfx/monster_die.ogg']
+  };
+  const cache={};
+  function volume(){
+    try{
+      const el=document.getElementById('volume');
+      return Math.max(0,Math.min(1,Number((el&&el.value)||70)/100));
+    }catch(e){return .7;}
+  }
+  function getFile(type){
+    const list=SFX_FILES[type]||SFX_FILES.click;
+    return list[Math.floor(Math.random()*list.length)];
+  }
+  function playSfx(type){
+    const src=getFile(type);
+    try{
+      if(!cache[src]){
+        const a=new Audio(src);
+        a.preload='auto';
+        cache[src]=a;
+      }
+      const base=cache[src];
+      const a=base.cloneNode(true);
+      a.volume=Math.min(1,volume()*(type==='click'?.34:.82));
+      a.currentTime=0;
+      const r=a.play();
+      if(r&&r.catch)r.catch(()=>{});
+    }catch(e){}
+  }
+  function install(){
+    try{
+      if(typeof Music!=='undefined'&&Music){
+        Music.sfx=function(type){playSfx(type)};
+      }
+    }catch(e){}
+  }
+  install();
+  document.addEventListener('DOMContentLoaded',install);
+  document.addEventListener('pointerdown',function(ev){
+    const target=ev.target&&ev.target.closest?ev.target.closest('button,.key,.action,.roleBtn,.modeBtn,.topbtn,.filterBtn,.btn,.big'):null;
+    if(target)playSfx('click');
+  },true);
+})();
+</script>
+
+</body></html>
